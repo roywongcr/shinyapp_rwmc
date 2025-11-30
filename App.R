@@ -8,7 +8,7 @@ library(gt)
 library(shinythemes)
 library(readxl)
 
-TRASPL_HEP <- read_excel("Data/TRASPL_HEP.xlsx")
+TRASPL_HEP <- read_excel("data/TRASPL_HEP.xlsx")
 
 
 # Loading data ----
@@ -70,4 +70,5 @@ server <- function(input, output) {
     output$myTable2<-render_gt(Barley %>% select(col,row,gen) %>% tbl_summary(by=gen)%>% add_ci()%>% add_p() %>% as_gt())
 }
 # Run the app ----
+
 shinyApp(ui = ui, server = server)
